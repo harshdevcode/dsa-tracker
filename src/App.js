@@ -2,8 +2,8 @@ import "./App.css";
 import Lister from "./components/Lister";
 import Questions from "./components/Questions";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import React from "react";
 import Completer from "./components/Completer";
 function App() {
