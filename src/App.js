@@ -23,7 +23,6 @@ function App() {
   const [Checked10, setChecked10] = useState([]);
   const [Checked11, setChecked11] = useState([]);
   const [progress, setprogress] = useState(0);
-  const [Checked13, setChecked13] = useState([]);
 
 // const [qstate, setqstate] = useState(localStorage.getItem("qstate"));
 
