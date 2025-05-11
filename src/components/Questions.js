@@ -47,7 +47,7 @@ const handlechange = (id) => {
         const newList = Checked.filter((idt) => idt !== id);
         setChecked(newList);
 
-   localStorage.setItem('Checked'+`${no}`, JSON.stringify(newList));
+   localStorage.setItem(`Checked${no}`, JSON.stringify(newList));
    localStorage.setItem('qstate', JSON.stringify(newList));
  
         // const newList1 = qstate.filter((idt) => idt !=== id);
@@ -57,7 +57,7 @@ const handlechange = (id) => {
      else {
         // setqstate([...qstate,id]);
         setChecked([...Checked,id]);
-        localStorage.setItem('Checked'+`${no}`, JSON.stringify(Checked+id));
+        localStorage.setItem(`Checked${no}`, JSON.stringify(Checked+id));
      }   
      
 // setChecked(Checked);
@@ -71,7 +71,7 @@ let checkID  = (ele) =>
    
     for(let i=0;i<Checked.length;i++)
        {
-          if (ele==Checked[i]) return true;
+          if (ele===Checked[i]) return true;
        }
        return false;
 }

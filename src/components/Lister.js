@@ -30,7 +30,7 @@ export default function Lister({
 let counter=0;
 for(let no=0;no<=12;no++)
 {
-let  op = JSON.parse(localStorage.getItem('Checked'+`${no}`));
+let  op = JSON.parse(localStorage.getItem(`Checked${no}`));
 //  let ans=0;
 if (op!==null)
   {
@@ -41,7 +41,7 @@ if (op!==null)
       // let iop = parseInt(strs[i] + strs[i+1]);
 
       //  if (strs[i]==='+') { item2.push((strs[i] + strs[i+1] + strs[i+2])); i+=3;}
- if ((op[i]!==',' && op[i]!=='/' &&  op[i]!=='"' && op[i]!=='['&& op[i]!==']' && (op[i]<'a'|| op[i]>'z')&& op[i]!=="\\"&& op[i]!=='+') || op.length==3 ) {counter++;}
+ if ((op[i]!==',' && op[i]!=='/' &&  op[i]!=='"' && op[i]!=='['&& op[i]!==']' && (op[i]<'a'|| op[i]>'z')&& op[i]!=="\\"&& op[i]!=='+') || op.length===3 ) {counter++;}
     }
 
   }
@@ -162,9 +162,10 @@ setcount(counter);
           {" "}
           Made with Love | &nbsp;
           <img
-            className="h-6 w-6"
-            alt="bing image" src="https://th.bing.com/th/id/R.968421ef5d794eb8cb555bb49dff4acd?rik=uxIlq%2bqiSDLTsA&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f1061%2f1924%2fproducts%2fStar_Emoji_grande.png%3fv%3d1480481043&ehk=1a3L6akK6vOPWmacDkHduTA1L5brh2me2a3w7ivd%2fHE%3d&risl=&pid=ImgRaw&r=0"
-          ></img>
+  className="h-6 w-6"
+  alt=""
+  src="https://th.bing.com/th/id/R.968421ef5d794eb8cb555bb49dff4acd?rik=uxIlq%2bqiSDLTsA&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f1061%2f1924%2fproducts%2fStar_Emoji_grande.png%3fv%3d1480481043&ehk=1a3L6akK6vOPWmacDkHduTA1L5brh2me2a3w7ivd%2fHE%3d&risl=&pid=ImgRaw&r=0"
+/>
           <Link
             target="_blank"
             className="text-sky-600 "

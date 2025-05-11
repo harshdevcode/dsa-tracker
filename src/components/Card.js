@@ -17,7 +17,7 @@ if (op!==null)
       // let iop = parseInt(strs[i] + strs[i+1]);
 
       //  if (strs[i]==='+') { item2.push((strs[i] + strs[i+1] + strs[i+2])); i+=3;}
- if ((op[i]!==',' && op[i]!=='/' &&  op[i]!=='"' && op[i]!=='['&& op[i]!==']' && (op[i]<'a'|| op[i]>'z')&& op[i]!=="\\"&& op[i]!=='+') || op.length==3 ) {kk++;}
+ if ((op[i]!==',' && op[i]!=='/' &&  op[i]!=='"' && op[i]!=='['&& op[i]!==']' && (op[i]<'a'|| op[i]>'z')&& op[i]!=="\\"&& op[i]!=='+') || op.length===3 ) {kk++;}
     }
 
   }
@@ -58,7 +58,7 @@ if (op!==null)
       <h4 className='text-bg font-bold text-zinc-700 mt-2 mb-1'>Total Questions : {qno}</h4>
 
 {
- ans==0 ?  <h6 className=' text-orange-800 italic mt-2 font-sans '>Not Yet Started</h6> :   
+ ans===0 ?  <h6 className=' text-orange-800 italic mt-2 font-sans '>Not Yet Started</h6> :   
  Math.round((ans*100)/qno)!==100 ?
     // {console.log(ans)
     <div>      <div className=' justify-between mt-2  text-center flex ' >
