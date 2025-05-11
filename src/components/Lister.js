@@ -1,9 +1,6 @@
 import React from "react";
 import Card from "./Card.js";
-import Questions from "./Questions.js";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import styles from "./Lister.css"
 
 export default function Lister({
   Checked1,
@@ -35,7 +32,7 @@ for(let no=0;no<=12;no++)
 {
 let  op = JSON.parse(localStorage.getItem('Checked'+`${no}`));
 //  let ans=0;
-if (op!=null)
+if (op!==null)
   {
     op  = [...new Set(op)];
     
@@ -44,27 +41,27 @@ if (op!=null)
       // let iop = parseInt(strs[i] + strs[i+1]);
 
       //  if (strs[i]==='+') { item2.push((strs[i] + strs[i+1] + strs[i+2])); i+=3;}
- if ((op[i]!=',' && op[i]!='/' &&  op[i]!='"' && op[i]!='['&& op[i]!=']' && (op[i]<'a'|| op[i]>'z')&& op[i]!="\\"&& op[i]!='+') || op.length==3 ) {counter++;}
+ if ((op[i]!==',' && op[i]!=='/' &&  op[i]!=='"' && op[i]!=='['&& op[i]!==']' && (op[i]<'a'|| op[i]>'z')&& op[i]!=="\\"&& op[i]!=='+') || op.length==3 ) {counter++;}
     }
 
   }
 }
 setcount(counter);
-  // let ans = op!=null? kk :0;
+  // let ans = op!==null? kk :0;
     
-  // op += Checked1!=null ? Checked1.length : 0;
-  // op += Checked2!=null ? Checked2.length : 0;
-  // op += Checked3!=null ? Checked3.length : 0;
-  // op += Checked4!=null ? Checked4.length : 0;
-  // op += Checked5!=null ? Checked5.length : 0;
-  // op += Checked6!=null ? Checked6.length : 0;
-  // op += Checked7!=null ? Checked7.length : 0;
-  // op += Checked8!=null ? Checked8.length : 0;
-  // op += Checked9!=null ? Checked9.length : 0;
-  // op += Checked10!=null ? Checked10.length : 0;
-  // op += Checked11!=null ? Checked11.length : 0;
-  // op += Checked12!=null ? Checked12.length : 0;
-  // op += Checked13!=null ? Checked13.length : 0;
+  // op += Checked1!==null ? Checked1.length : 0;
+  // op += Checked2!==null ? Checked2.length : 0;
+  // op += Checked3!==null ? Checked3.length : 0;
+  // op += Checked4!==null ? Checked4.length : 0;
+  // op += Checked5!==null ? Checked5.length : 0;
+  // op += Checked6!==null ? Checked6.length : 0;
+  // op += Checked7!==null ? Checked7.length : 0;
+  // op += Checked8!==null ? Checked8.length : 0;
+  // op += Checked9!==null ? Checked9.length : 0;
+  // op += Checked10!==null ? Checked10.length : 0;
+  // op += Checked11!==null ? Checked11.length : 0;
+  // op += Checked12!==null ? Checked12.length : 0;
+  // op += Checked13!==null ? Checked13.length : 0;
 
 //   setprogress(op);
 // }, [])
@@ -124,7 +121,7 @@ setcount(counter);
 
 {/*        
        useEffect(() => {
-    ans = op!=null?op.length:0;
+    ans = op!==null?op.length:0;
    
  }, [Checked1,Checked2,Checked3,Checked4,Checked1,Checked5,Checked6,Checked7,Checked8,Checked9,Checked10,Checked11,Checked12,Checked13,]) */}
  
@@ -158,7 +155,7 @@ setcount(counter);
 
           <img
             src="https://th.bing.com/th/id/R.1dde1bbff3a49d9a2d8e3ad315f9f137?rik=hx1P1nWyX7TYaw&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fheart-symbol-transparent%2fheart-symbol-transparent-7.png&ehk=tnXY15k5brhD0QZZmipdAq6M64XmIA6XDvtWxc1EXZA%3d&risl=&pid=ImgRaw&r=0"
-            className="w-6 h-6"
+            alt="bing" className="w-6 h-6"
           ></img>
         </div>
         <div className="flex justify-center">
@@ -166,7 +163,7 @@ setcount(counter);
           Made with Love | &nbsp;
           <img
             className="h-6 w-6"
-            src="https://th.bing.com/th/id/R.968421ef5d794eb8cb555bb49dff4acd?rik=uxIlq%2bqiSDLTsA&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f1061%2f1924%2fproducts%2fStar_Emoji_grande.png%3fv%3d1480481043&ehk=1a3L6akK6vOPWmacDkHduTA1L5brh2me2a3w7ivd%2fHE%3d&risl=&pid=ImgRaw&r=0"
+            alt="bing image" src="https://th.bing.com/th/id/R.968421ef5d794eb8cb555bb49dff4acd?rik=uxIlq%2bqiSDLTsA&riu=http%3a%2f%2fcdn.shopify.com%2fs%2ffiles%2f1%2f1061%2f1924%2fproducts%2fStar_Emoji_grande.png%3fv%3d1480481043&ehk=1a3L6akK6vOPWmacDkHduTA1L5brh2me2a3w7ivd%2fHE%3d&risl=&pid=ImgRaw&r=0"
           ></img>
           <Link
             target="_blank"

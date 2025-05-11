@@ -1,40 +1,45 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Questions({no,name,qlist,Checked,setChecked,qstate,setqstate,mode}) {
 
   useEffect(() => {
-
-   let strs=localStorage.getItem('Checked'+`${no}`);
-   if (strs==null) return;
-    // let strs=localStorage.getItem('qstate');
-    // localStorage.setItem('Checked', "");
-    // localStorage.setItem('qstate', "");
-    let item1=[],item2=[];
-
-    // for(let i=0;i<strs.length;i++)
-    // {
-    //    if (strs[i]!=','&&strs[i]!='/'&&strs[i]!='"'&&strs[i]!='['&&strs[i]!=']'&&(strs[i]<'a'||strs[i]>'z')) item2.push(strs[i]);
-    // }
-    for(let i=0;i<strs.length;i++)
-    {
-      // let iop = parseInt(strs[i] + strs[i+1]);
-
-       if (strs[i]==='+') { item2.push((strs[i] + strs[i+1] + strs[i+2])); i+=3;}
-else if (strs[i]!=',' && strs[i]!='/' &&  strs[i]!='"' && strs[i]!='['&&strs[i]!=']' && (strs[i]<'a'||strs[i]>'z')&& strs[i]!="\\"&& strs[i]!='+' && strs[i]!='0' ) {item2.push(strs[i]);}
+    let strs = localStorage.getItem(`Checked${no}`);
+    if (strs == null) return;
+  
+    let item2 = [];
+    for (let i = 0; i < strs.length; i++) {
+      if (
+        strs[i] === '+' &&
+        strs[i + 1] &&
+        strs[i + 2]
+      ) {
+        item2.push(strs[i] + strs[i + 1] + strs[i + 2]);
+        i += 3;
+      } else if (
+        strs[i] !== ',' &&
+        strs[i] !== '/' &&
+        strs[i] !== '"' &&
+        strs[i] !== '[' &&
+        strs[i] !== ']' &&
+        (strs[i] < 'a' || strs[i] > 'z') &&
+        strs[i] !== '\\' &&
+        strs[i] !== '+' &&
+        strs[i] !== '0'
+      ) {
+        item2.push(strs[i]);
+      }
     }
-
+  
     setChecked(item2);
     console.log(item2);
-    localStorage.setItem('Checked'+`${no}`, JSON.stringify(item2));
-    // localStorage.setItem('qstate', JSON.stringify(item2));
-  }, []);
+    localStorage.setItem(`Checked${no}`, JSON.stringify(item2));
+  
+  }, [no, setChecked]); // ✅ added missing dependencies
+  
 
     let qq = qlist;
-    function refreshPage() {
-      window.location.reload();
-    }
-
+    
 const handlechange = (id) => {
 
      if (checkID(id)===true) 
@@ -45,7 +50,7 @@ const handlechange = (id) => {
    localStorage.setItem('Checked'+`${no}`, JSON.stringify(newList));
    localStorage.setItem('qstate', JSON.stringify(newList));
  
-        // const newList1 = qstate.filter((idt) => idt !== id);
+        // const newList1 = qstate.filter((idt) => idt !=== id);
         // setqstate(newList1);
 
     }
@@ -91,7 +96,7 @@ return (
     {/* {console.log ( mode == "dark" ? " bg-cyan-500 " : null )} */}
 
     <div className='flex justify-center mt-24 ' >
-        <img className='w-10 h-10' src="Sparkle.png"></img>
+        <img className='w-10 h-10' src="Sparkle.png" alt='Sparkle'></img>
       <h1 className='text-4xl mb-3' >{name}  Problems</h1>
     </div>
     <div className='flex justify-center mt-4'>
@@ -111,30 +116,25 @@ return (
  
    
     
-qq.map((ele)=>{
-        {
-                return (          
-    <tr className = { checkID(ele.ID)==true?"bg-green-400":ele.ID%2===0?"bg-cyan-100":"none"  }>
-                    <td  className=' text-md  text-sky-700 font-medium   border-2 p-3 w-10'>
-                    
-                      { ele.ID[0]=='+'? handleID(ele.ID) : ele.ID }
-                    
-                    </td>
-                    <td  className='text-md text-left text-sky-700 font-medium   border-2 p-3'><Link target="_blank" to={ele.link}>{ele.Q}</Link></td>
-                    <td  className='text-md  text-sky-700 font-medium text-center  border-2 w-36'>
-                        {
-        checkID(ele.ID)===false ? <img className='w-5 h-5' src="https://th.bing.com/th/id/OIP.2Ef1V0Yr3Lv_CZLcXBBt3gHaHa?pid=ImgDet&rs=1"></img> :
-        <img className='w-5 h-5' src="https://cdn.pixabay.com/photo/2012/04/24/16/22/check-40319_960_720.png"></img> 
-                        }
-                        </td>
-                    <td  className='text-md  text-sky-700 font-medium   border-2 p-3 w-20'>
-<input   type="checkbox"  onChange={()=>{handlechange(ele.ID)}} checked={checkID(ele.ID)}/>
-                      </td>
-                  </tr>
-                )               
-                }
-}
-)
+ qq.map((ele) => (
+  <tr className={checkID(ele.ID) ? "bg-green-400" : ele.ID % 2 === 0 ? "bg-cyan-100" : "none"}>
+    <td className='text-md text-sky-700 font-medium border-2 p-3 w-10'>
+      {ele.ID[0] === '+' ? handleID(ele.ID) : ele.ID}
+    </td>
+    <td className='text-md text-left text-sky-700 font-medium border-2 p-3'>
+      <Link target="_blank" to={ele.link}>{ele.Q}</Link>
+    </td>
+    <td className='text-md text-sky-700 font-medium text-center border-2 w-36'>
+      {checkID(ele.ID) === false ? 
+        <img className='w-5 h-5' src="https://th.bing.com/th/id/OIP.2Ef1V0Yr3Lv_CZLcXBBt3gHaHa?pid=ImgDet&rs=1" alt='bing' /> :
+        <img className='w-5 h-5' src="https://cdn.pixabay.com/photo/2012/04/24/16/22/check-40319_960_720.png" alt='pixabay' />
+      }
+    </td>
+    <td className='text-md text-sky-700 font-medium border-2 p-3 w-20'>
+      <input type="checkbox" onChange={() => { handlechange(ele.ID); }} checked={checkID(ele.ID)} />
+    </td>
+  </tr>
+))
 }
 </table>
 </div>
